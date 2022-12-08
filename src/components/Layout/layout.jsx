@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 import styled from 'styled-components';
 import Sidebar from '../sidebar/sidebar';
@@ -10,6 +11,7 @@ function Layout() {
       <Header />
       <AppBody>
         <Sidebar />
+        <Outlet />
       </AppBody>
     </>
   );
