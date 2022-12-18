@@ -12,6 +12,7 @@ import {
 import Layout from './components/Layout/layout';
 import Chat from './components/chat/chat';
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>

@@ -13,14 +13,14 @@ import AppsIcon from '@mui/icons-material/Apps';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
-import { collection, getFirestore } from 'firebase/firestore/';
-import { firebaseApp } from '../../firebase';
+import { collection} from 'firebase/firestore/';
+import { auth, db} from '../../firebase';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Sidebar() {
-  const [channels, loading, error] = useCollection(
-    collection(getFirestore(firebaseApp), 'rooms')
-  );
+  const [channels] = useCollection(collection(db, 'rooms'));
+  const [user] = useAuthState(auth)
 
   return (
     <SidebarContainer>
@@ -29,7 +29,7 @@ function Sidebar() {
           <h2>HQ</h2>
           <h3>
             <FiberManualRecordIcon />
-            Ruddy Autem
+            {user.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />
