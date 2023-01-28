@@ -8,7 +8,6 @@ import Header from './../header/header';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
 import Login from './../login/login';
-import { Ripple } from 'react-css-spinkit';
 
 function Layout() {
   const [user, loading] = useAuthState(auth);
